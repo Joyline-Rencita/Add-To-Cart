@@ -2,36 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Add to Cart Demonstration</title>
+    <link rel="stylesheet" href="trial.css">
+    <link rel="shortcut icon" href="img/icon.webp" type="image/x-icon">
+    <script defer src="trial.js"></script>
 </head>
-<body class="">
-    
-    <div class="container">
-        <header>
-            <h1>Your Shopping Cart</h1>
-            <div class="shopping">
-                <img src="image/shopping.svg">
-                <span class="quantity">0</span>
-            </div>
-        </header>
-
-        <div class="list">
-          
+<body>
+    <nav>
+        <div class="logo">
+            <img src="img/coffee_creek.png">
         </div>
-    </div>
-    <div class="card">
-        <h1>Card</h1>
-        <ul class="listCard">
+        <ul>
+            <li><a href="#pizza">Pizza</a></li>
+            <li><a href="#burger">Burger</a></li>
         </ul>
-        <div class="checkOut">
-            <div class="total">0</div>
-            <div class="closeShopping">Close</div>
+        <div class="shopping">
+            <img src="img/shopping.svg" class="cart-icon">
+            <span class="quantity">0</span>
         </div>
-    </div>
+    </nav>
 
-    <script src="app.js"></script>
+    <section id="pizza">
+        <div class="content-wrapper">
+            <h4 class="section-title">Pizza <span>Menu</span></h4> <br>
+            <div class="flex">
+                <div class="card">
+                    <img src="img/pizza.jpg" class="card-img" alt="pizza image 01">
+                    <h3>Veggie Delight Pizza</h3>
+                    <p>A colorful feast of mushrooms, peppers, olives, and basil on a crispy crust.</p>
+                    <p class="price">$4.99</p>
+                    <button class="btn add-to-cart" data-name="Veggie Delight Pizza" data-price="4.99">Order Now</button>
+                </div>
+                <div class="card">
+                    <img src="img/pizza9.avif" class="card-img" alt="pizza image 02">
+                    <h3>Mediterranean Feast Pizza</h3>
+                    <p>A delicious and satisfying pizza with a variety of Mediterranean flavors.</p>
+                    <p class="price">$6.99</p>
+                    <button class="btn add-to-cart" data-name="Mediterranean Feast Pizza" data-price="6.99">Order Now</button>
+                </div>
+                <div class="card">
+                    <img src="img/pizza10.webp" class="card-img" alt="pizza image 03">
+                    <h3>Margarita</h3>
+                    <p>Premium grilled Sandwich made up of cottage cheese with cheese on top.</p>
+                    <p class="price">$20.99</p>
+                    <button class="btn add-to-cart" data-name="Margarita" data-price="20.99">Order Now</button>
+                </div>
+                <div class="card">
+                    <img src="img/pizza5.jpg" class="card-img" alt="pizza image 04">
+                    <h3>Veggie Pizza</h3>
+                    <p>Premium grilled Sandwich made up of cottage cheese with cheese on top.</p>
+                    <p class="price">$15.99</p>
+                    <button class="btn add-to-cart" data-name="Veggie Pizza" data-price="15.99">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="burger">
+        <div class="content-wrapper">
+            <h4 class="section-title">Burger <span>Menu</span></h4><br>
+            <div class="flex">
+                <div class="card">
+                    <img src="img/burger.avif" class="card-img" alt="Burger Image 01">
+                    <h3>Hamburger</h3>
+                    <p>Premium grilled sandwich made up of fresh beef patty, lettuce, and tomato.</p>
+                    <p class="price">$10.99</p>
+                    <button class="btn add-to-cart" data-name="Hamburger" data-price="10.99">Order Now</button>
+                </div>
+                <div class="card">
+                    <img src="img/burger3.jpg" class="card-img" alt="Burger Image 02">
+                    <h3>Chicken BBQ Burger</h3>
+                    <p>Juicy grilled chicken with tangy BBQ sauce, topped with crispy onions.</p>
+                    <p class="price">$10.99</p>
+                    <button class="btn add-to-cart" data-name="Chicken Grilled BBQ Burger" data-price="10.99">Order Now</button>
+                </div>
+                <div class="card">
+                    <img src="img/burger2.jpg" class="card-img" alt="Burger Image 03">
+                    <h3>Paneer Tickky Burger</h3>
+                    <p>Delicious grilled paneer with fresh vegetables and cheese.</p>
+                    <p class="price">$10.99</p>
+                    <button class="btn add-to-cart" data-name="Paneer Tickky Burger" data-price="10.99">Order Now</button>
+                </div>
+                <div class="card">
+                    <img src="img/burger5.jpg" class="card-img" alt="Burger Image 04">
+                    <h3>Juicy Turkey Burger</h3>
+                    <p>Succulent turkey patty with spices, served with fresh lettuce and tomato.</p>
+                    <p class="price">$10.99</p>
+                    <button class="btn add-to-cart" data-name="Juicy Turkey Burger" data-price="10.99">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-sidebar-header">
+        <h2>Your Cart</h2>
+        <button id="close-cart">&times;</button> <!-- Close button beside heading -->
+    </div>
+    
+    <table class="cart-items-table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody class="cart-items">
+            <!-- Dynamically add cart items here -->
+        </tbody>
+    </table>
+    
+    <div class="checkOut">
+        <div class="total">Total: $0.00</div>
+    </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<script src="trial.js"></script>
+
 </body>
 </html>
