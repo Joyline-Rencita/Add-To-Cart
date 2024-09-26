@@ -378,3 +378,82 @@ body.cart-open .overlay {
     margin-top: 20px; /* Space above total */
     text-align: center; /* Center the text */
 }
+
+/* Large Devices (Desktops and larger screens) */
+@media screen and (min-width: 1024px) {
+    .cart-sidebar {
+        width: 400px; /* Set specific width for larger screens */
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media screen and (max-width: 1024px) {
+    .cart-sidebar {
+        width: 100%; /* Full width for tablets */
+    }
+
+    .cart-items-table th, 
+    .cart-items-table td {
+        font-size: 0.9em; /* Slightly smaller font */
+    }
+
+    .cart-sidebar-header {
+        padding: 15px; /* Adjust padding */
+    }
+
+    .checkOut {
+        padding: 15px;
+        font-size: 1.1em; /* Adjust font size */
+    }
+}
+
+/* Small Devices (Landscape Phones) */
+@media screen and (max-width: 768px) {
+    .cart-sidebar {
+        width: 100%; /* Use full width on small devices */
+        right: -100%; /* Start completely off-screen */
+    }
+
+    .cart-items-table th, .cart-items-table td {
+        font-size: 0.8em; /* Further reduce font size */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .cart-items-table img {
+        width: 40px; /* Smaller image size */
+    }
+
+    .cart-sidebar-header {
+        padding: 10px; /* Adjust padding */
+    }
+
+    .checkOut {
+        padding: 10px;
+        font-size: 1em; /* Adjust font size */
+    }
+}
+.cart-sidebar.open {
+    transform: translateX(-100%); /* Slide in from the right */
+}
+
+/* Extra Small Devices (Portrait Phones) */
+@media screen and (max-width: 480px) {
+    .cart-sidebar-header {
+        flex-direction: column; /* Stack title and close button */
+        text-align: center; /* Center-align header text */
+    }
+
+    .cart-items-table th, .cart-items-table td {
+        font-size: 0.7em; /* Smallest font size */
+        padding: 6px; /* Further reduce padding */
+    }
+
+    .cart-items-table img {
+        width: 30px; /* Smallest image size */
+    }
+
+    .checkOut {
+        padding: 8px;
+        font-size: 0.9em; /* Smaller font size */
+    }
+}
