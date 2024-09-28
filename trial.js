@@ -4,6 +4,7 @@ const overlay = document.getElementById('overlay');
 const closeCartButton = document.getElementById('close-cart');
 const cartOpenButton = document.querySelector('.cart-icon'); // The cart image
 const quantityElement = document.querySelector('.quantity'); // Element to display item count
+const emptyCartMessage = document.querySelector('.empty-cart-message'); // "Your cart is empty" message
 
 // Initialize cart and total price
 let cartItems = [];
@@ -52,7 +53,6 @@ function updateCart() {
                 <button class="increase" data-name="${item.name}">+</button>
             </td>
         `;
-
         cartItemsTable.appendChild(tr);
     });
 
@@ -80,7 +80,6 @@ function addToCart(name, price, imgUrl) {
     itemCount++; // Increment item count
     updateCart();
 }
-
 
 // Function to change quantity
 function changeQuantity(name, change) {
@@ -133,3 +132,42 @@ document.querySelectorAll('.btn').forEach(button => {
         addToCart(name, price, imgUrl);
     });
 });
+
+// Function to cancel the order and clear the cart
+function cancelOrder() {
+    cartItems = []; // Clear the cart items
+    totalPrice = 0; // Reset the total price
+    itemCount = 0; // Reset the item count
+    updateCart(); // Update the cart display
+    closeCart(); // Close the cart if it is open
+}
+
+// Event listener for the cancel button
+document.getElementById('cancel-btn').addEventListener('click', cancelOrder);
+
+// Function to handle billing process
+function proceedToBilling() {
+    if (cartItems.length === 0) {
+        alert("Your cart is empty! Please add items to your cart before proceeding.");
+        return; // Prevent proceeding if the cart is empty
+    }
+
+    // Create a summary of the cart items
+    let billSummary = "Your Bill:\n\n";
+    cartItems.forEach(item => {
+        billSummary += `${item.name} - $${item.price.toFixed(2)} x ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}\n`;
+    });
+
+    // Add total price to the summary
+    billSummary += `\nTotal: $${totalPrice.toFixed(2)}`;
+
+    // Optionally, you could redirect to a payment page or an external payment gateway here
+    // For demonstration purposes, we'll just alert the bill summary
+    alert(billSummary);
+
+    // Clear the cart after billing
+    cancelOrder(); // Reuse the cancelOrder function to clear the cart
+}
+
+// Event listener for the proceed button
+document.getElementById('proceed-btn').addEventListener('click', proceedToBilling);
