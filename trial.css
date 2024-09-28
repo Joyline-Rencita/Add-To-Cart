@@ -410,7 +410,7 @@ body.cart-open .overlay {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    margin-left: 150px;
+    margin-left: 155px;
     margin-top: 20px;
 }
 
@@ -499,4 +499,16 @@ body.cart-open .overlay {
         padding: 8px;
         font-size: 0.9em; /* Smaller font size */
     }
+
+    /* Adjustments for the Cancel Button in Extra Small Devices */
+    .btn-cancel {
+        width: 90%; /* Slightly larger width for portrait phones */
+        font-size: 0.8em; /* Even smaller font size */
+        padding: 6px; /* Further reduce padding */
+        margin: 0 auto; /* Center-align the button */
+        display: block; /* Ensure it behaves like a block element */
+    }
+}
+.cart-sidebar.open {
+    transform: translateX(-100%); /* Slide in from the right */
 }
